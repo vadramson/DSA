@@ -28,11 +28,24 @@ class LinkedList(): # Create a collection of nodes
             print(lnk_lst)
             return
         
+    # Inserting a new Node at the End of the list
+    
+    def insert_at_end(self, data):
+        if self.head is None: # If the linked list collection is Empty
+            self.head = Node(data, None) # Add a new Node to it with None as next since it is the last node
+            
+        else:
+            lnk_lst = self.head
+            
+            while lnk_lst.next: # while the collection still contains elements...
+                lnk_lst = lnk_lst.next # Keep iterating over the collection till the end
+            lnk_lst.next = Node(data, None) # Add a new node at the end of the collection 
+                
+        
 if __name__ == '__main__':
     lnk = LinkedList()
     lnk.insert_at_begining(5)
     lnk.insert_at_begining(50)
     lnk.insert_at_begining(58)
-    lnk.print_lnk_lst()
-        
-    
+    lnk.insert_at_end(13) # This should give 58 --> 50 --> 5 --> 13 -->
+    lnk.print_lnk_lst()        
