@@ -40,12 +40,38 @@ class LinkedList(): # Create a collection of nodes
             while lnk_lst.next: # while the collection still contains elements...
                 lnk_lst = lnk_lst.next # Keep iterating over the collection till the end
             lnk_lst.next = Node(data, None) # Add a new node at the end of the collection 
-                
+    
+    # Creating a Linked list from a list of data adding new data at the end and clearing any existing linked list
+    
+    def insert_lists_at_end(self, data):
+        self.head = None # Clears any existing linlked list
+        for i in data:
+            self.insert_at_end(i)
+    
+    # Creating a Linked list from a list of data adding new data at the begining and clearing any existing linked list
+    def insert_lists_at_begining(self, data):
+        self.head = None
+        for i in data:
+            self.insert_at_begining(i)
+    
+    # Counting the number of items in the linked list
+    
+    def count_num_nodes(self):
+        ct = 0
         
+        lnk_lst = self.head
+        while lnk_lst:
+            ct += 1
+            lnk_lst = lnk_lst.next
+        return ct
+     
 if __name__ == '__main__':
     lnk = LinkedList()
     lnk.insert_at_begining(5)
     lnk.insert_at_begining(50)
     lnk.insert_at_begining(58)
     lnk.insert_at_end(13) # This should give 58 --> 50 --> 5 --> 13 -->
-    lnk.print_lnk_lst()        
+    lnk.insert_lists_at_end([12, 30, 95, 26, 92])
+    lnk.insert_lists_at_begining([12, 30, 95, 26, 92])
+    lnk.print_lnk_lst()
+    print("The number of Linked lists is ", lnk.count_num_nodes())
