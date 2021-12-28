@@ -36,6 +36,51 @@ class BinaryTreeNode():
         if self.right:
             elements += self.right.in_order_traversal() # Recursively get all the elements of the right subtree and add them into the list
         return elements
+        
+    # Get all elements from the Right subtree then the Root node and finally the left subtree
+    def pre_order_traversal(self):
+        elements = []
+        
+        if self.right:
+            elements += self.right.pre_order_traversal()  # Recursively get all the elements of the right subtree and add them into the list
+        elements.append(self.data)
+        
+        if self.left:
+            elements += self.left.pre_order_traversal()  # Recursively get all the elements of the left subtree and add them into the list
+        
+        return elements # get the Root node element
+        
+    # Get all elements from the Right subtree then the left subtree and finally the Root node    
+    def post_order_traversal(self):
+        elements = []
+        
+        if self.left:
+            elements = self.left.post_order_traversal()  # Recursively get all the elements of the left subtree and add them into the list
+        
+        if self.right:
+            elements = self.right.post_order_traversal()  # Recursively get all the elements of the right subtree and add them into the list
+            
+        elements. append(self.data) # Get the Root node element
+        
+        return elements
+        
+        
+    def search_element(self, elem): # complexity of log n O(log n)
+        if self.data == elem:
+            return True
+        elif elem < self.data:
+            # This means if present, element would be on the left 
+            if self.left:
+               return self.left.search_element(elem)  
+            else:
+                return False
+            
+        else:
+            # This means if present, element would be on the right
+            if self.right:
+                return self.right.search_element(elem)  
+            else:
+                return False
     
 # Tree Builder helper method
 def build_binary_tree(lst_elem: list):
@@ -43,15 +88,18 @@ def build_binary_tree(lst_elem: list):
         root_node = BinaryTreeNode(lst_elem[0])
         for i in lst_elem[1:]:
             root_node.add_child(i)
-    
-        return print(root_node.in_order_traversal())
+       
+        #root_node.search_element(20)
+        #print(root_node.in_order_traversal())
+        return root_node
     else:
         return print("Insufficient number of elements")
         
 
 if __name__ == '__main__':
-   elems = [17, 4, 1, 20, 9, 23, 18, 34]
-   build_binary_tree(elems)
+   mt = build_binary_tree([17, 4, 1, 20, 9, 23, 18, 34])
+   print(mt.in_order_traversal())
+   print(mt.search_element(20))
             
             
             
