@@ -109,7 +109,46 @@ class BinaryTreeNode():
         return max(self.in_order_traversal())    
     
     def min_element_in_tree(self):
-        return min(self.in_order_traversal())    
+        return min(self.in_order_traversal())   
+        
+    def min_right_elem(self):
+        ele = []
+        if self.right:
+           ele += self.right.in_order_traversal()
+        print(ele)
+        return min(ele)
+        
+    
+    def delete_element(self, value):
+        if self.search_element(value):
+            if value < self.data:
+                self.left = self.left.delete_element(value)  # Iterate through the Left subtree till you find the value or not 
+            elif value > self.data:
+                self.right = self.right.delete_element(value) # Iterate through the Right subtree till you find the value or not
+        
+            else: # if value == self.data
+                if self.left is None and self.right is None: # if left and right sub trees contain no data return None
+                    return None
+                if self.left is None: # if left sub tree contains no data return right subtree
+                    return self.right
+                if self.right is None: # if right sub tree contains no data return right subtree (None)
+                    return self.left
+                
+                
+                # If Left and Right subtrees contain data, proceed to delete element    
+                
+                # ** Using Min Element from Right sub tree **
+                """
+                min_val = self.min_element_in_tree() # Get the minimum value of the right sub tree 
+                self.data = min_val # replace the self.data which is eauql to value with the minimum value of the right subtree
+                self.right = self.right.delete_element(min_val) # remove the duplicate
+                """
+                # ** Using Max Element from left sub tree **
+                
+                max_ele_left = self.left.max_element_in_tree()
+                self.data = max_ele_left
+                self.left = self.left.delete_element(max_ele_left)
+            return self
     
     
 # Tree Builder helper method
@@ -135,6 +174,8 @@ if __name__ == '__main__':
    print("Sum of all elemnts in tree", mt.sum_of_all_elements_in_tree())
    print("Max element in tree is", mt.max_element_in_tree())
    print("Min element in tree is", mt.min_element_in_tree())
-            
-            
+   mt.delete_element(0)
+   #print(mt.min_right_elem())
+   print("In Order Traversal", mt.in_order_traversal())
+   print("Min element in tree is", mt.min_element_in_tree())
             
