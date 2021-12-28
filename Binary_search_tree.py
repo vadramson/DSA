@@ -23,8 +23,8 @@ class BinaryTreeNode():
             else:
                 self.right = BinaryTreeNode(data)
     
-    
-    def in_order_traversal(self): # Visit Left subtree, then Root node and finaly Right subtree
+    # Visit Left subtree, then Root node and finaly Right subtree
+    def in_order_traversal(self):  # Left - Root - Right
         elements = []
         
         # Getting all elements of the Left Subtree    
@@ -37,16 +37,18 @@ class BinaryTreeNode():
             elements += self.right.in_order_traversal() # Recursively get all the elements of the right subtree and add them into the list
         return elements
         
-    # Get all elements from the Right subtree then the Root node and finally the left subtree
-    def pre_order_traversal(self):
+    # Get all elements from the Root node then the left subtree and finanally the Right subtree 
+    def pre_order_traversal(self): # Root - Left - Right
         elements = []
         
-        if self.right:
-            elements += self.right.pre_order_traversal()  # Recursively get all the elements of the right subtree and add them into the list
         elements.append(self.data)
         
         if self.left:
             elements += self.left.pre_order_traversal()  # Recursively get all the elements of the left subtree and add them into the list
+        
+        if self.right:
+            elements += self.right.pre_order_traversal()  # Recursively get all the elements of the right subtree and add them into the list
+
         
         return elements # get the Root node element
         
@@ -55,12 +57,12 @@ class BinaryTreeNode():
         elements = []
         
         if self.left:
-            elements = self.left.post_order_traversal()  # Recursively get all the elements of the left subtree and add them into the list
+            elements += self.left.post_order_traversal()  # Recursively get all the elements of the left subtree and add them into the list
         
         if self.right:
-            elements = self.right.post_order_traversal()  # Recursively get all the elements of the right subtree and add them into the list
+            elements += self.right.post_order_traversal()  # Recursively get all the elements of the right subtree and add them into the list
             
-        elements. append(self.data) # Get the Root node element
+        elements.append(self.data) # Get the Root node element
         
         return elements
         
@@ -82,6 +84,17 @@ class BinaryTreeNode():
             else:
                 return False
     
+    
+    def sum_of_all_elements_in_tree(self):
+        return sum(self.in_order_traversal())
+        
+    def max_element_in_tree(self):
+        return max(self.in_order_traversal())    
+    
+    def min_element_in_tree(self):
+        return min(self.in_order_traversal())    
+    
+    
 # Tree Builder helper method
 def build_binary_tree(lst_elem: list):
     if len(lst_elem) >1:
@@ -97,9 +110,14 @@ def build_binary_tree(lst_elem: list):
         
 
 if __name__ == '__main__':
-   mt = build_binary_tree([17, 4, 1, 20, 9, 23, 18, 34])
-   print(mt.in_order_traversal())
+   mt = build_binary_tree([17, -5, 4, 1, 20, 9, -1, 23, 18, 0, 34])
+   print("In Order Traversal", mt.in_order_traversal())
+   print("Post Order Traversal", mt.post_order_traversal())
+   print("Pre Order Traversal", mt.pre_order_traversal())
    print(mt.search_element(20))
+   print("Sum of all elemnts in tree", mt.sum_of_all_elements_in_tree())
+   print("Max element in tree is", mt.max_element_in_tree())
+   print("Min element in tree is", mt.min_element_in_tree())
             
             
             
