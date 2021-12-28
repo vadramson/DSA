@@ -1,3 +1,20 @@
+"""
+			  17
+			/    \
+		   /      \
+		  /	       \		  
+		 4          20
+		 /\			/\	
+	    /  \       /  \
+	   /    \     /    \
+	  1      9    18    23
+						  \
+						   \
+							\ 
+						     34
+							 
+"""							 
+
 # Binary Search Tree implementation in Python
 
 class BinaryTreeNode():
