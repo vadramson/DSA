@@ -22,10 +22,36 @@ class BinaryTreeNode():
                 self.right.add_child(data) # Recursively call the add_child method to add the data to an appropriate place
             else:
                 self.right = BinaryTreeNode(data)
-                
-            
-            
-            
+    
+    
+    def in_order_traversal(self): # Visit Left subtree, then Root node and finaly Right subtree
+        elements = []
+        
+        # Getting all elements of the Left Subtree    
+        if self.left:
+            elements += self.left.in_order_traversal() # Recursively get all the elements of the left subtree and add them into the list
+        elements.append(self.data) # Adding the root node to the list
+        
+        # Getting all elements of the Right Subtree    
+        if self.right:
+            elements += self.right.in_order_traversal() # Recursively get all the elements of the right subtree and add them into the list
+        return elements
+    
+# Tree Builder helper method
+def build_binary_tree(lst_elem: list):
+    if len(lst_elem) >1:
+        root_node = BinaryTreeNode(lst_elem[0])
+        for i in lst_elem[1:]:
+            root_node.add_child(i)
+    
+        return print(root_node.in_order_traversal())
+    else:
+        return print("Insufficient number of elements")
+        
+
+if __name__ == '__main__':
+   elems = [17, 4, 1, 20, 9, 23, 18, 34]
+   build_binary_tree(elems)
             
             
             
