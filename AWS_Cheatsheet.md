@@ -26,3 +26,7 @@ Private services(EC2, Amazon RDS, Amazone Elastic File system) exist within a VP
 # EC2 (Elastic Cloud Compute) Instances
 
 [EC2 Instance Types](https://github.com/vadramson/DSA/blob/main/image.png)
+
+You can use the RDP(Remote Desktop Protocol) and Remote Desktop client to connect to windows EC2 instances.
+
+You can also use Putty client on windows to convert **.pem** keys to be able to connect to ssh from a Putty Termina
