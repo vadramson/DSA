@@ -36,3 +36,10 @@ You can also use Putty client on windows to convert **.pem** keys to be able to 
 
 IAM Role roles are used to Allows EC2 instances to call AWS services on your behalf. (This is a very secure way as the connection credentials are frequently regenerated) 
 
+
+## Auto-Scaling EC2 instances
+[Auto-Scaling EC2 instances](https://github.com/vadramson/DSA/blob/main/Auto-Scaling-EC2.png) can launch out EC2 instances if more compute power is needed or can reduce running instances if less compute power is need.
+
+This is done automatically and it helps reduce cost
+
+
