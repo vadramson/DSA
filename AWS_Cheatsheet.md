@@ -15,3 +15,8 @@
 ACL (Access Control List): Workd on a subnet level and by defualt accept all inbound and Outbound traffric unless explicitly revoked.
 
 Security Groups are applied on EC2 instances
+
+
+**Public & Private Services**
+
+Private services(EC2, Amazon RDS, Amazone Elastic File system) exist within a VPC while Public services(S3, DynamoDB, Route 53, CloudFront) do not
