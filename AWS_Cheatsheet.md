@@ -10,3 +10,8 @@
 
 
 **VPC** (Virtual Private Cloud): This is a virtual cloud or space within a region where we can create and lunch resources. We have more control over the security as opposed to the general cloud security. We can restrict some IP and stuff
+
+
+ACL (Access Control List): Workd on a subnet level and by defualt accept all inbound and Outbound traffric unless explicitly revoked.
+
+Security Groups are applied on EC2 instances
