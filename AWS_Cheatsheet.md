@@ -30,3 +30,9 @@ Private services(EC2, Amazon RDS, Amazone Elastic File system) exist within a VP
 You can use the RDP(Remote Desktop Protocol) and Remote Desktop client to connect to windows EC2 instances.
 
 You can also use Putty client on windows to convert **.pem** keys to be able to connect to ssh from a Putty Termina
+
+
+## (Identity Access management) IAM Role
+
+IAM Role roles are used to Allows EC2 instances to call AWS services on your behalf.
+
