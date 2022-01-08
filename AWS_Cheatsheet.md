@@ -25,4 +25,4 @@ Private services(EC2, Amazon RDS, Amazone Elastic File system) exist within a VP
 
 # EC2 (Elastic Cloud Compute) Instances
 
-[EC2 Instance Types](l)
+[EC2 Instance Types](https://github.com/vadramson/DSA/blob/main/image.png)
