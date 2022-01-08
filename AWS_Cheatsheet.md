@@ -34,5 +34,5 @@ You can also use Putty client on windows to convert **.pem** keys to be able to 
 
 ## (Identity Access management) IAM Role
 
-IAM Role roles are used to Allows EC2 instances to call AWS services on your behalf.
+IAM Role roles are used to Allows EC2 instances to call AWS services on your behalf. (This is a very secure way as the connection credentials are frequently regenerated) 
 
