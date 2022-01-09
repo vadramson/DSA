@@ -43,3 +43,53 @@ IAM Role roles are used to Allows EC2 instances to call AWS services on your beh
 This is done automatically and it helps reduce cost
 
 
+
+# Connecting to Ubuntu EC2 instance from local desktop
+
+**Step 1:**
+
+SSH into the remote EC2 terminal and 
+
+    sudo apt update
+
+Install xrdp to allow RDP connections:
+
+    sudo apt install ubuntu-desktop
+    sudo apt install xrdp
+
+Set a password for the ubuntu user:
+
+    sudo passwd your_desired_pwd
+
+**Step 2:**
+
+Go to AWS console (EC2 Dashboard)
+
+Click on Instances(running)
+
+Select your running Ubuntu instance
+
+Go to Security
+
+Click on Security Groups
+
+Click on Edit inbound rules
+
+In type drop down select RDP
+
+It by default select port 3389
+
+In Source add 0.0.0.0/0 IP
+
+Click on Save rules
+
+**Step 3:**
+
+Open Remote Desktop Connection on your local machine
+
+Enter Computer: Public IPv4 DNS of Ubuntu ec2 and add username:your_user_name (most common __ec2-user__)
+
+click on connect will open up GUI version of Ubuntu (linux), It ask for password please enter the set password.
+
+
+
